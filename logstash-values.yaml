@@ -1,0 +1,28 @@
+# logstash-values.yaml
+replicas: 1
+
+resources:
+  requests:
+    memory: 512Mi
+  limits:
+    memory: 1024Mi
+
+logstashConfig:
+  logstash.yml: |
+    http.host: "0.0.0.0"
+
+logstashPipeline:
+  logstash.conf: |
+    input {
+      tcp {
+        port => 5000
+        codec => json
+      }
+    }
+
+    output {
+      elasticsearch {
+        hosts => ["http://elasticsearch-master.observabilidad.svc.cluster.local:9200"]
+        index => "logstash-prueba"
+      }
+    }

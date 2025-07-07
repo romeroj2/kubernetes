@@ -1,0 +1,9 @@
+replicas: 1
+
+resources:
+  requests:
+    memory: 512Mi
+  limits:
+    memory: 1024Mi
+
+elasticsearchHosts: "http://elasticsearch-master.observabilidad.svc.cluster.local:9200"
