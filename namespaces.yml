@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: observabilidad
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: aplicacion
